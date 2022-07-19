@@ -365,14 +365,14 @@
   when:
     - iosxeSTIG_stigrule_215833_Manage
 # R-215836 CISC-ND-000980
-- name : stigrule_215836_logging_buffered_4096_informational
-  ignore_errors: "{{ ignore_all_errors }}"
-  notify: "save configuration"
-  ios_config:
-    defaults: yes
-    lines: "{{ iosxeSTIG_stigrule_215836_logging_buffered_4096_informational_Lines }}"
-  when:
-    - iosxeSTIG_stigrule_215836_Manage
+#- name : stigrule_215836_logging_buffered_4096_informational
+#  ignore_errors: "{{ ignore_all_errors }}"
+#  notify: "save configuration"
+#  ios_config:
+#    defaults: yes
+#    lines: "{{ iosxeSTIG_stigrule_215836_logging_buffered_4096_informational_Lines }}"
+#  when:
+#    - iosxeSTIG_stigrule_215836_Manage
 # R-215837 CISC-ND-001000
 # Please configure name IP address to a valid one.
 - name : stigrule_215837_host
