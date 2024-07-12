@@ -80,8 +80,8 @@ iosxeSTIG_stigrule_215823_disable_bootp_server_Lines:
   - no ip bootp server
 iosxeSTIG_stigrule_215823_disable_dns_server_Lines:
   - no ip dns server
-# iosxeSTIG_stigrule_215823_disable_identd_Lines:
-#   - no ip identd
+iosxeSTIG_stigrule_215823_disable_identd_Lines:
+  - no ip identd
 iosxeSTIG_stigrule_215823_disable_finger_Lines:
   - no ip finger
 iosxeSTIG_stigrule_215823_disable_http_server_Lines:
