@@ -365,23 +365,23 @@
   when:
     - iosxeSTIG_stigrule_215833_Manage
 # R-215836 CISC-ND-000980
-#- name : stigrule_215836_logging_buffered_4096_informational
-#  ignore_errors: "{{ ignore_all_errors }}"
-#  notify: "save configuration"
-#  ios_config:
-#    defaults: yes
-#    lines: "{{ iosxeSTIG_stigrule_215836_logging_buffered_4096_informational_Lines }}"
-#  when:
-#    - iosxeSTIG_stigrule_215836_Manage
+- name : stigrule_215836_logging_buffered_4096_informational
+ ignore_errors: "{{ ignore_all_errors }}"
+ notify: "save configuration"
+ ios_config:
+   defaults: yes
+   lines: "{{ iosxeSTIG_stigrule_215836_logging_buffered_4096_informational_Lines }}"
+ when:
+   - iosxeSTIG_stigrule_215836_Manage
 # R-215837 CISC-ND-001000
 # Please configure name IP address to a valid one.
-# - name : stigrule_215837_host
-#   ignore_errors: "{{ ignore_all_errors }}"
-#   notify: "save configuration"
-#   ios_logging:
-#     dest: host
-#     name: "{{ iosxeSTIG_stigrule_215837_host_Name }}"
-#   when: iosxeSTIG_stigrule_215837_Manage
+- name : stigrule_215837_host
+  ignore_errors: "{{ ignore_all_errors }}"
+  notify: "save configuration"
+  ios_config:
+    lines:
+      - "logging {{ iosxeSTIG_stigrule_215837_host_Name }}"
+  when: iosxeSTIG_stigrule_215837_Manage
 # R-215837 CISC-ND-001000
 # Please configure name IP address to a valid one.
 - name : stigrule_215837_logging_trap_critical
@@ -397,16 +397,18 @@
 - name : stigrule_215838_ntp_server_1
   ignore_errors: "{{ ignore_all_errors }}"
   notify: "save configuration"
-  ios_ntp:
-    server: "{{ iosxeSTIG_stigrule_215838_ntp_server_1_Server }}"
+  cisco.ios.ios_config:
+    lines:
+      - ntp server "{{ iosxeSTIG_stigrule_215838_ntp_server_1_Server }}"
   when: iosxeSTIG_stigrule_215838_Manage
 # R-215838 CISC-ND-001030
 # Replace ntp servers' IP address before enabling.
 - name : stigrule_215838_ntp_server_2
   ignore_errors: "{{ ignore_all_errors }}"
   notify: "save configuration"
-  ios_ntp:
-    server: "{{ iosxeSTIG_stigrule_215838_ntp_server_2_Server }}"
+  cisco.ios.ios_config:
+    lines:
+      - ntp server "{{ iosxeSTIG_stigrule_215838_ntp_server_2_Server }}"
   when: iosxeSTIG_stigrule_215838_Manage
 # R-215840 CISC-ND-001050
 # service timestamps log datetime localtime is set in 215817.
